@@ -1,0 +1,56 @@
+.icon-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    height: rem(35px);
+    overflow: hidden;
+    position: relative;
+    transition: all .3s;
+    width: rem(35px);
+  
+    &__inner,
+    &:before,
+    &:after {
+      background-color: $c-dark-black;
+      border-radius: rem(10px);
+      content: '';
+      height: rem(3px);
+      left: rem(4px);
+      position: absolute;
+      transition: all .2s ease-out;
+      width: rem(24px);
+
+      @include screen(0, $media-tablet) {
+        background-color: $c-white;
+      }
+    }
+  
+    &__inner {
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  
+    &:before {
+      top: rem(10px);
+    }
+  
+    &:after {
+      top: rem(21px);
+    }
+  
+    &--active {
+      .hamburger__inner {
+        opacity: 0;
+      }
+  
+      &:before {
+        top: rem(16px);
+        transform: rotate(45deg);
+      }
+  
+      &:after {
+        top: rem(16px);
+        transform: rotate(-45deg);
+      }
+    }
+}

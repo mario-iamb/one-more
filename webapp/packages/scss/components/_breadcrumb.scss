@@ -1,0 +1,41 @@
+.breadcrumb {
+    width: 100%;
+    margin-bottom: rem(30px);
+
+    &__item {
+        display: inline-block;
+
+        &:last-of-type {
+            a {
+                opacity: .3;
+            }
+        }
+
+        &:not(:last-child) {
+            &:after {
+                content: '';
+                height: 0;
+                border-style: solid;
+                border-width: 2.5px 0 2.5px 4px;
+                display: inline-block;
+                vertical-align: middle;
+                border-color: transparent transparent transparent $c-black;
+                margin-left: rem(7px);
+                margin-right: rem(7px);
+                margin-bottom: rem(5px);
+            }
+        }
+    }
+
+    &__link {
+        @include t-regular;
+        @include type(14,17);
+        color: $c-dark-black;
+        transition: opacity .1s ease-in-out;
+
+        &:hover {
+            opacity: .3;
+            transition: opacity .1s ease-in-out;
+        }
+    }
+}

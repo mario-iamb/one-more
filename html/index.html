@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../css/style.css" />
+    <title>Puglife</title>
+</head>
+<body>
+    <div class="wrapper">
+        <header class="header">
+            <div class="header__wrapper">
+                <div class="header__branding">
+                    <a href="index.html" class="header__branding-link">
+                        <img src="../css/images/puglife-logo.svg" alt="Puglife">
+                    </a>
+                </div>
+        
+                <div class="header__search">
+                    <form action="/" class="site-search__form" method="get">
+                        <div class="site-search__wrapper">
+                            <div class="site-search__input-wrapper">
+                                <input class="site-search__input" id="site-search" name="s" placeholder="Search" required="" type="search">
+                            </div>
+                            <button class="site-search__button" type="submit">Search</button>
+                        </div>
+                    </form>
+                </div>
+        
+                <a href="#" class="header__minicart">
+                    <img src="../css/images/cart.svg">
+                    <span class="header__minicart-counter">0</span>
+                </a>
+        
+                <button class="header__show-navigation icon-button">
+                    <span class="icon-button__inner"></span>
+                </button>
+            </div>
+        </header>
+
+        <section class="product">
+
+            <div class="product__images">
+                <ul class="images__list">
+                    <li class="images__item">
+                        <img src="../css/images/products/kisspng-lunar-meteorite-rock.png" alt="">
+                    </li>
+                </ul>
+            </div>
+
+            <div class="product__details">
+                <div class="breadcrumb">
+                    <ul class="breadcrumb__list">
+                        <li class="breadcrumb__item">
+                            <a href="#" class="breadcrumb__link">Rocks</a>
+                        </li>
+                        <li class="breadcrumb__item">
+                            <a href="#" class="breadcrumb__link">Moon</a>
+                        </li>
+                        <li class="breadcrumb__item">
+                            <a href="#" class="breadcrumb__link">Rare</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="product__detail-wrapper">
+                    <h1 class="product__title">Moonrock from Apollo Expedition</h1>
+                    <div class="product__price">
+                        <span class="product__price--current">$59.99</span>
+                        <span class="product__price--sale">$69.99</span>
+                    </div>
+                    <div class="product__description">
+                        <p>Collected by the United States Apollo program manned lunar landings from 1969 to 1972</p>
+                    </div>
+                    
+                    <div class="product__actions">
+                        <button class="button button--add-to-cart">
+                            <span class="button__icon--cart"></span>
+                            <span class="button__text--lg">Add to cart.</span>
+                        </button>
+
+                        <button class="button button--wishlist">
+                            <span class="button__icon--whishlist"></span>
+                            <span class="button__text--sm">Save to Whishlist</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

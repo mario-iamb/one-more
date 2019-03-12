@@ -1,0 +1,68 @@
+.header {
+    display: flex;
+    width: 100%;
+    height: rem(120px);
+    z-index: 2;
+    
+    @include screen(0, $media-tablet) {
+        height: rem(100px);
+    }
+
+    &__wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        padding-left: rem(50px);
+        padding-right: rem(150px);
+        width: 100%;
+
+        @include min-screen($media-tablet) {
+            margin-top: auto; 
+        }
+
+        @include screen(0, $media-tablet) {
+            padding-right: rem(24px);
+            padding-left: rem(24px);
+        }
+    }
+
+    &__branding {
+        margin-right: auto;
+    }
+
+    &__search {
+        min-width: rem(262px);
+        margin-right: rem(80px);
+
+        @include screen(0, $media-tablet) {
+            display: none;
+        }
+    }
+
+    &__minicart {
+        display: flex;
+        align-items: center;
+        margin-right: rem(30px);
+        z-index: 1;
+
+        &-counter {
+            @include t-regular;
+            @include type(11,18);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: $c-dark-black;
+            text-decoration: none;
+            margin-left: rem(10px);
+            width: rem(20px);
+            height: rem(20px);
+            border-radius: rem(50px);
+            background-color: $c-light-grey;
+
+            @include screen(0, $media-tablet) {
+                background-color: rgba($color: $c-black, $alpha: .34);
+                color: $c-white;
+            }
+        }
+    }
+}

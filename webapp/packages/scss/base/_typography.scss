@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700,900');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,700');
+
+@mixin t-regular {
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+}
+
+@mixin t-bold {
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+}
+
+@mixin t-heavy {
+    font-family: 'Lato', sans-serif;
+    font-weight: 900;
+}
+
+@mixin t-alt-regular {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+}
+
+@mixin t-alt-medium {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+}
+
+@mixin t-alt-bold {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+}
+
+
+@mixin type($font-size, $line-height) {
+    font-size: rem($font-size * 1px);
+    line-height: rem($line-height * 1px);
+}

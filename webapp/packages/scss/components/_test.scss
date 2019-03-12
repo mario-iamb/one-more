@@ -1,0 +1,30 @@
+.wrapper {
+    max-width: rem(1400px);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: $c-aquamarine;
+    position: relative;
+    margin: 0 auto;
+
+    &:before {
+        content: '';
+        position: absolute;
+        width: 70%;
+        top: 0;
+        right: 0;
+        height: 100%;
+        background-color: $c-white;
+
+        @include screen(0, $media-tablet) {
+            top: rem(200px);
+            width: 100%;
+        }
+    }
+}
+
+.content-pdp {
+    width: 70%;
+    height: 100%;
+    background-color: $c-white;
+}

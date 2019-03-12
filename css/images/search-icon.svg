@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="17px" height="17px" viewBox="0 0 17 17" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.4 (67378) - http://www.bohemiancoding.com/sketch -->
+    <title>Search</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M227.174414,18.6746007 C225.102976,16.6031632 221.746038,16.6031632 219.674601,18.6746007 C217.603163,20.7460382 217.603163,24.102976 219.674601,26.1744135 C221.746038,28.245851 225.102976,28.245851 227.174414,26.1744135 C229.245851,24.102976 229.245851,20.7460382 227.174414,18.6746007 M232.689762,31.6897617 C232.27505,32.1034128 231.603662,32.1034128 231.188951,31.6897617 L227.848983,28.3487335 C224.940698,30.5230534 220.816914,30.3172885 218.17485,27.674164 C215.27505,24.7754243 215.27505,20.0746506 218.17485,17.1748503 C221.07359,14.2750499 225.775424,14.2750499 228.674164,17.1748503 C231.317288,19.8169142 231.523053,23.9406975 229.348733,26.848983 L232.689762,30.1900112 C233.103413,30.6036623 233.103413,31.2750499 232.689762,31.6897617" id="path-1"></path>
+    </defs>
+    <g id="01" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Desktop" transform="translate(-1158.000000, -243.000000)">
+            <g id="Single-Product" transform="translate(150.000000, 150.000000)">
+                <g id="Top-Header" transform="translate(792.000000, 78.000000)">
+                    <g id="Input---Search">
+                        <mask id="mask-2" fill="white">
+                            <use xlink:href="#path-1"></use>
+                        </mask>
+                        <use id="Search" fill="#19202C" xlink:href="#path-1"></use>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
