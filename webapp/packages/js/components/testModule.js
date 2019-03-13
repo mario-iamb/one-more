@@ -41,7 +41,8 @@ export default function testModule () {
         var myCart = {
             item: document.querySelector('.product__title').innerHTML,
             price: document.querySelector('.product__price--current').innerHTML,
-            qty: document.querySelector('.qty-input input').value
+            qty: document.querySelector('.qty-input input').value,
+            cartTotal: ''
         };
 
         var NewjsonStr = JSON.stringify( myCart );
