@@ -37,7 +37,18 @@ gulp.task('sass', function() {
         .pipe(reload({stream:true}));
 }); 
 
-gulp.task('default', ['sass'],function(){
+gulp.task('js', function() {
+    return browserify('./packages/js/script.js')
+        .transform("babelify", { presets: ["es2015"] })
+        .bundle()
+        .pipe(source('script.js'))
+        .pipe(buffer())
+        .pipe(sourcemaps.init())
+        .pipe(uglify())
+        .pipe(gulp.dest('../js'));
+});
+
+gulp.task('default', ['sass','js'],function(){
     gulp.watch('./packages/scss/**/*', ['sass']);
-    // gulp.watch('./package/js/**/*', ['js']);
+    gulp.watch('./packages/js/**/*', ['js']);
 });
