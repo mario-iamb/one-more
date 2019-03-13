@@ -1,7 +1,7 @@
 export default function testModule () {
 
     const miniCart = document.querySelector('.header__minicart');
-    // const addToCart = document.querySelector('.button--add-to-cart');
+    const addToCart = document.querySelector('.button--add-to-cart');
     
     // sessionStorage.setItem( "total", 120 );
     //const total = sessionStorage.getItem( "total" );
@@ -41,7 +41,7 @@ export default function testModule () {
         var myCart = {
             item: document.querySelector('.product__title').innerHTML,
             price: document.querySelector('.product__price--current').innerHTML,
-            qty: document.querySelector('.header__minicart-counter').innerHTML
+            qty: document.querySelector('.qty-input input').value
         };
 
         var NewjsonStr = JSON.stringify( myCart );

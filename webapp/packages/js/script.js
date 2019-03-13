@@ -1,4 +1,5 @@
 import testModule from './components/testModule';
+import quantityCounter from './components/quantityCounter';
 
 
 class App {
@@ -10,6 +11,7 @@ class App {
 
     constructor() {
         this.testModule = new testModule();
+        this.quantityCounter = new quantityCounter();
     }
 }
 
