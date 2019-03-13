@@ -1,23 +1,50 @@
 export default function testModule () {
 
     const miniCart = document.querySelector('.header__minicart');
+    // const addToCart = document.querySelector('.button--add-to-cart');
+    
+    // sessionStorage.setItem( "total", 120 );
+    //const total = sessionStorage.getItem( "total" );
   
-    // function NewSetCookie(name,value,days) {
-    //   let expires = "";
-    //   if (days) {
-    //       const date = new Date();
-    //       date.setTime(date.getTime() + (days*24*60*60*1000));
-    //       expires = `; expires=${date.toUTCString()}`;
-    //   }
-    //   document.cookie = `${name}=${value || ""}${expires}; path=/`;
-    // }
-  
-    // if (document.cookie.indexOf("CookieControl=") < 0) {
-    //   FooterBlock.insertAdjacentHTML('afterend','<div class="cookie-consent active"><div class="container-fluid"><div class="row"><div class="col-12 cookie-consent__message"><p>This website uses cookies to ensure you get the best experience on our website. <a class="info" href="/privacy-policies/">More Info</a></p><a id="cookie-close" class="button" href="/">I am happy to accept the cookies</a></div></div></div></div>');
-    // }
+    // miniCart.addEventListener('click', (e)=> {
+    //     e.preventDefault();
+    //     var total = parseInt( sessionStorage.getItem( "total" ) );
+    //     var quantity = 2;
+    //     var updatedTotal = total * quantity;
+    //     sessionStorage.setItem( "total", updatedTotal );
+    //     console.log(total); 
+    // })
+
+    // miniCart.addEventListener('click', (e)=> {
+    //     sessionStorage.setItem( "total", 120 );
+    // })
+
+
+    // Storing OBJECT
+    // http://jsfiddle.net/greenrhino/rS3Qf/
+    // var cart = {
+    //     item: "Product 1",
+    //     price: 35.50,
+    //     qty: 2
+    // };
+
+    // var jsonStr = JSON.stringify( cart );
+
+    // miniCart.addEventListener('click', (e)=> {
+    //     sessionStorage.setItem( "cart", jsonStr );
+    // })
+
 
     miniCart.addEventListener('click', (e)=> {
         e.preventDefault();
-        console.log('you clicked basket')
+
+        var myCart = {
+            item: document.querySelector('.product__title').innerHTML,
+            price: document.querySelector('.product__price--current').innerHTML,
+            qty: document.querySelector('.header__minicart-counter').innerHTML
+        };
+
+        var NewjsonStr = JSON.stringify( myCart );
+        sessionStorage.setItem( "cart", NewjsonStr );
     })
 };
