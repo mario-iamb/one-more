@@ -99,4 +99,13 @@
 .cart {
     width: 100%;
     margin-top: rem(100px);
+
+    .shopping-cart {
+        width: rem(400px);
+
+        tr {
+            border: 1px solid black;
+            width: rem(200px);
+        }
+    }
 }
