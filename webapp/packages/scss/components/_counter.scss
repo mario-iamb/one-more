@@ -1,34 +1,57 @@
-.qty-input {
-    border: 1px solid black;
-    height: 40px;
-    position: relative;
-    width: 122px;
-
-    i {
-        cursor: pointer;
-        font-family: serif;
-        height: 40px;
-        float: left;
-        line-height: 40px;
-        text-align: center;
-        user-select: none;
-        transition: all 150ms ease-out;
-        width: 33px;
-    
-        &:active {
-            //background:
-            color: #F1F1F1;
-            transition: none;
-        }
+.product {
+    &__quantity {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: rem(108px);
     }
     
-    input {
-        border: 0px solid;
-        float: left;
-        font-size: 24px;
-        height: 38px;
-        text-align: center;
-        outline: none;
-        width: 54px;
+    &__quantity-label {
+        @include t-regular;
+        @include type(12,15);
+        color: $c-dark-black;
+        margin-bottom: rem(8px);
+        text-transform: uppercase;
+    }
+
+    &__quantity-holder {
+        display: flex;
+        border: 1px solid $c-light-grey-2;
+        border-radius: rem(50px);
+        height: rem(42px);
+        width: 100%;
+
+        i {
+            cursor: pointer;
+            font-family: serif;
+            height: 40px;
+            line-height: 42px;
+            text-align: center;
+            user-select: none;
+            transition: all 150ms ease-out;
+            width: rem(33px);
+            background-repeat: no-repeat;
+    
+            &.less {
+                background-image: url('images/minus-icon.svg');
+                background-position: 70%;
+            }
+    
+            &.more {
+                background-image: url('images/plus-icon.svg');
+                background-position: 30%;
+            }
+        }
+        
+        input {
+            @include t-alt-regular;
+            @include type(14,18);
+            background-color: $c-white;
+            border: none;
+            height: rem(40px);
+            text-align: center;
+            outline: none;
+            width: rem(40px);
+        }
     }
 }

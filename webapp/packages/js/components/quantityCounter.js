@@ -11,12 +11,12 @@
 // export default quantityCounter;
 
 export default function quantityCounter () {
-    const qtyButton = document.querySelectorAll('.qty-input i');
+    const qtyButton = document.querySelectorAll('.product__quantity-holder i');
 
     qtyButton.forEach(function(e) {
         e.addEventListener('click', (e)=> {
             e.preventDefault();
-            const currentValue = document.querySelector('.qty-input input').value;
+            const currentValue = document.querySelector('.product__quantity-holder input').value;
             let val = parseInt(currentValue);
 
             if (e.target.classList.contains('less')) {
@@ -29,7 +29,7 @@ export default function quantityCounter () {
                 val = 1;
             }
 
-            document.querySelector('.qty-input input').value = val;
+            document.querySelector('.product__quantity-holder input').value = val;
         })
     });
 };

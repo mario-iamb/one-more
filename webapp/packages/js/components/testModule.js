@@ -20,6 +20,7 @@ export default function testModule () {
     // })
 
 
+
     // Storing OBJECT
     // http://jsfiddle.net/greenrhino/rS3Qf/
     // var cart = {
@@ -35,17 +36,48 @@ export default function testModule () {
     // })
 
 
-    miniCart.addEventListener('click', (e)=> {
+    // Convert to String
+    const ConvertToString = (value) => {
+        return Number(value.replace(/[^0-9.-]+/g,""));
+    }
+
+    
+    // Set up basket itemsarray
+    const createArray = () => {
+        const newArray = new Object();
+        newArray.item = document.querySelector('.product__title').innerHTML;
+        newArray.price = ConvertToString(document.querySelector('.product__price--current').innerHTML);
+        newArray.qty = document.querySelector('.product__quantity-holder input').value;
+        newArray.subTotal = newArray.price * newArray.qty;
+
+        if (sessionStorage.basket) {
+            basket = JSON.parse(sessionStorage.getItem('basket'));
+        } else {
+            var basket = [];
+        }
+
+        basket.push(newArray);
+        sessionStorage.setItem('basket', JSON.stringify(basket));
+    }
+
+
+
+    addToCart.addEventListener('click', (e)=> {
         e.preventDefault();
 
-        var myCart = {
-            item: document.querySelector('.product__title').innerHTML,
-            price: document.querySelector('.product__price--current').innerHTML,
-            qty: document.querySelector('.qty-input input').value,
-            cartTotal: ''
-        };
+        
+        // const setPrice = document.querySelector('.product__price--current').innerHTML;
 
-        var NewjsonStr = JSON.stringify( myCart );
-        sessionStorage.setItem( "cart", NewjsonStr );
+        // const myCart = {
+        //     item: document.querySelector('.product__title').innerHTML,
+        //     price: ConvertToString(setPrice),
+        //     qty: document.querySelector('.product__quantity-holder input').value,
+        // };
+
+        // sessionStorage.setItem( "Cart Items", JSON.stringify(myCart) );
+        // sessionStorage.setItem( "Cart Total", JSON.stringify(ConvertToString(setPrice)) );
+
+        createArray();
+        // createStudent();
     })
 };

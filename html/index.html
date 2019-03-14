@@ -12,9 +12,9 @@
         <header class="header">
             <div class="header__wrapper">
                 <div class="header__branding">
-                    <!-- <a href="index.html" class="header__branding-link">
+                    <a href="index.html" class="header__branding-link">
                         <img src="../css/images/puglife-logo.svg" alt="Puglife">
-                    </a> -->
+                    </a>
                 </div>
         
                 <div class="header__search">
@@ -30,7 +30,7 @@
         
                 <a href="#" class="header__minicart">
                     <img src="../css/images/cart.svg">
-                    <span class="header__minicart-counter">1</span>
+                    <span class="header__minicart-counter">0</span>
                 </a>
         
                 <button class="header__show-navigation icon-button">
@@ -73,12 +73,16 @@
                     <div class="product__description">
                         <p>Collected by the United States Apollo program manned lunar landings from 1969 to 1972</p>
                     </div>
-
-                    <div class="product__quantity qty-input">
-                        <i class="less">-</i>
-                        <input type="text" value="1" disabled>
-                        <i class="more">+</i>
+                    
+                    <div class="product__quantity">
+                        <label class="product__quantity-label">Quantity</label>
+                        <div class="product__quantity-holder">
+                            <i class="less"></i>
+                            <input type="text" value="1" disabled>
+                            <i class="more"></i>
+                        </div>
                     </div>
+                    
                     
                     <div class="product__actions">
                         <button class="button button--add-to-cart">
@@ -93,6 +97,26 @@
                     </div>
                 </div>
             </div>
+        </section>
+
+
+        <section class="cart">
+            <table class="shopping-cart">
+                <thead>
+                    <tr>
+                        <th scope="col">Item</th>
+                        <th scope="col">Qty</th>
+                        <th scope="col" colspan="2">Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+
+            <p id="sub-total">
+                <strong>Sub Total</strong>: <span id="stotal"></span>
+            </p>
         </section>
         
     </div>
