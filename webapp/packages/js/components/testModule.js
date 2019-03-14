@@ -37,6 +37,8 @@ export default function testModule () {
 
     // https://www.telerik.com/blogs/functional-programming-with-javascript-object-arrays
     // https://stackoverflow.com/questions/28606841/session-storage-how-to-store-multiple-objects
+    // Get items from seesion storage
+    // https://stackoverflow.com/questions/38083241/sessionstorage-into-array-and-print-all-values-in-the-array
 
     addToCart.addEventListener('click', (e)=> {
         e.preventDefault();
