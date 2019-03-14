@@ -14,13 +14,12 @@ export default function testModule () {
     // Set up basket items array
     const createArray = () => {
 
-        const newArray = new Object();
-        newArray.item = document.querySelector('.product__title').innerHTML;
-        newArray.price = ConvertToString(document.querySelector('.product__price--current').innerHTML);
-        newArray.qty = document.querySelector('.product__quantity-holder input').value;
-        newArray.subTotal = newArray.price * newArray.qty;
-
-        //console.log(newArray);
+        // 2 version
+        const myItem = {};
+        myItem.name = document.querySelector('.product__title').innerHTML;
+        myItem.price = ConvertToString(document.querySelector('.product__price--current').innerHTML);
+        myItem.quantity = document.querySelector('.product__quantity-holder input').value;
+        myItem.subtotal = myItem.price * myItem.quantity;
 
         if (sessionStorage.basket) {
             basket = JSON.parse(sessionStorage.getItem('basket'));
@@ -28,51 +27,32 @@ export default function testModule () {
             var basket = [];
         }
 
-        basket.push(newArray);
+        basket.push(myItem);
         sessionStorage.setItem('basket', JSON.stringify(basket));
-        
-        
 
-          
-        // const keys = Object.keys(newArray);
-        // for (const key of keys) {
-        //     console.log(key)
-        // }
-
-        // const entries = Object.entries(basket);
-        // console.log(entries);
+        let totalPrice = basket.map(obj => obj.subtotal).reduce((acc, next) => acc + next);
+        sessionStorage.setItem( "CartTotal", JSON.stringify(totalPrice) );
 
     }
 
-    const myArray = [];
-    const myItem = {}
-
     // https://www.telerik.com/blogs/functional-programming-with-javascript-object-arrays
+    // https://stackoverflow.com/questions/28606841/session-storage-how-to-store-multiple-objects
 
     addToCart.addEventListener('click', (e)=> {
         e.preventDefault();
-        myItem.name = document.querySelector('.product__title').innerHTML;
-        myItem.price = ConvertToString(document.querySelector('.product__price--current').innerHTML);
-        myItem.quantity = document.querySelector('.product__quantity-holder input').value;
-        myItem.subtotal = myItem.price * myItem.quantity;
 
-        myArray.push(myItem);
-        sessionStorage.setItem( "CartItems", JSON.stringify(myArray) );
+        // const myItem = {}
+        // myItem.name = document.querySelector('.product__title').innerHTML;
+        // myItem.price = ConvertToString(document.querySelector('.product__price--current').innerHTML);
+        // myItem.quantity = document.querySelector('.product__quantity-holder input').value;
+        // myItem.subtotal = myItem.price * myItem.quantity;
 
-        let totalPrice = myArray.map(obj => obj.subtotal).reduce((acc, next) => acc + next);
-        sessionStorage.setItem( "CartTotal", JSON.stringify(totalPrice) );
+        // myArray.push(myItem);
+        // sessionStorage.setItem( "CartItems", JSON.stringify(myArray) );
 
-        // const setPrice = document.querySelector('.product__price--current').innerHTML;
+        // let totalPrice = myArray.map(obj => obj.subtotal).reduce((acc, next) => acc + next);
+        // sessionStorage.setItem( "CartTotal", JSON.stringify(totalPrice) );
 
-        // const myCart = {
-        //     item: document.querySelector('.product__title').innerHTML,
-        //     price: ConvertToString(setPrice),
-        //     qty: document.querySelector('.product__quantity-holder input').value,
-        // };
-
-        // sessionStorage.setItem( "Cart Items", JSON.stringify(myCart) );
-        // sessionStorage.setItem( "Cart Total", JSON.stringify(ConvertToString(setPrice)) );
-
-        // createArray();
+        createArray();
     })
 };
