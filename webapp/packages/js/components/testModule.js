@@ -41,7 +41,7 @@ export default function testModule () {
         return Number(value.replace(/[^0-9.-]+/g,""));
     }
 
-    
+    // https://www.w3resource.com/javascript-exercises/javascript-array-exercise-10.php
     // Set up basket itemsarray
     const createArray = () => {
         const newArray = new Object();
