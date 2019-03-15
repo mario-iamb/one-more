@@ -17,6 +17,12 @@ export default function testModule () {
         console.log('you clicked button');
     }
 
+    const mario = (value) => {
+        console.log('you clicked button');
+    }
+
+
+
     const createBasket = () => {
         const shoppingBasket = document.querySelector('.cartMessage');
         const cartItems = document.querySelector('.shopping__cart-items');
@@ -44,7 +50,7 @@ export default function testModule () {
     document.addEventListener('click',function(e){
         if(e.target && e.target.classList == 'pdelete'){
             e.preventDefault();
-            console.log('you clicked');
+            console.log(e.target.dataset.product);
         }
     });
 
