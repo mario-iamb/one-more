@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="18px" height="19px" viewBox="0 0 18 19" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.4 (67378) - http://www.bohemiancoding.com/sketch -->
+    <title>Menu Bar</title>
+    <desc>Created with Sketch.</desc>
+    <g id="01" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Desktop" transform="translate(-1462.000000, -237.000000)" fill="#19202C">
+            <g id="Single-Product" transform="translate(150.000000, 150.000000)">
+                <g id="Top-Header" transform="translate(792.000000, 78.000000)">
+                    <g id="Menu-Bar" transform="translate(519.000000, 8.000000)">
+                        <g stroke-width="1" transform="translate(1.000000, 1.000000)" id="Menu-Icon">
+                            <path d="M17.5047282,3.08362718 L2.84833306,17.7400223 C2.2088514,18.3795039 1.16416352,18.3700204 0.514718626,17.7205755 C-0.134726271,17.0711306 -0.144209821,16.0264427 0.495271839,15.3869611 L15.1516669,0.730565956 C15.7903772,0.0918556857 16.8358365,0.100567846 17.4852814,0.750012743 C18.1347263,1.39945764 18.1434384,2.44491691 17.5047282,3.08362718 L17.5047282,3.08362718 Z"></path>
+                        </g>
+                        <path d="M20.3636364,8.57142857 C21.2669091,8.57142857 22,9.31684034 22,10.2352941 C22,11.1537479 21.2669091,11.8991597 20.3636364,11.8991597 L-0.363636364,11.8991597 C-1.268,11.8991597 -2,11.1537479 -2,10.2352941 C-2,9.31684034 -1.268,8.57142857 -0.363636364,8.57142857 L20.3636364,8.57142857 Z" id="Path" transform="translate(10.000000, 10.235294) rotate(45.000000) translate(-10.000000, -10.235294) "></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

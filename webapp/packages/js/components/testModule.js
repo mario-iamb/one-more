@@ -1,14 +1,12 @@
 export default function testModule () {
-
-    
-    const miniCart = document.querySelector('.header__minicart');
+    const CartIcon = document.querySelector('.header__minicart');
     const addToCart = document.querySelector('.button--add-to-cart');
+    const closeMiniCart = document.querySelector('.mini-cart__close');
+    const yourCart = document.querySelector('.mini-cart');
     
     const ConvertToString = (value) => {
         return Number(value.replace(/[^0-9.-]+/g,""));
     }
-
-
 
     const createBasket = () => {
         const shoppingBasket = document.querySelector('.cartMessage');
@@ -60,14 +58,22 @@ export default function testModule () {
 
     // https://www.telerik.com/blogs/functional-programming-with-javascript-object-arrays
     // https://stackoverflow.com/questions/28606841/session-storage-how-to-store-multiple-objects
-    // Get items from seesion storage
-    // https://stackoverflow.com/questions/38083241/sessionstorage-into-array-and-print-all-values-in-the-array
 
     addToCart.addEventListener('click', (e)=> {
         e.preventDefault();
         addToBasket();
         createBasket();
-    })
+    });
+
+    CartIcon.addEventListener('click', (e) => {
+        e.preventDefault();
+        yourCart.style.transform = "translateX(0)";
+    });
+
+    closeMiniCart.addEventListener('click', (e) => {
+        e.preventDefault();
+        yourCart.style.transform = 'translateX(100%)';
+    });
 
     createBasket();
 };
