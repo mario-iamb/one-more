@@ -22,17 +22,10 @@ export default function testModule () {
         const cartItems = document.querySelector('.shopping__cart-items');
         const cartSum = document.querySelector('.stotal');
 
-
         if (sessionStorage.basket) {
             const BasketData = JSON.parse( sessionStorage.getItem('basket'));
             const BasketTotal = JSON.parse( sessionStorage.getItem('CartTotal'));
             cartItems.innerHTML = "";
-
-            // BasketData.forEach(function(element, index) {
-            //     const cartHtml = "<tr><td class ='product-remove'><a href='#' class='pdelete' data-product='"+ index +"'>Remove</a></td></tr>";
-            //     cartItems.insertAdjacentHTML('afterbegin',cartHtml);
-            // });
-
 
             BasketData.forEach(function(element, index) {
                 const cartHtml = "<tr><td class ='product-name'>"+ element.name +"</td><td class ='product-price'>"+ element.price +"</td><td class ='product-quantity'>"+ element.quantity +"</td><td class ='product-subtotal'>"+ element.subtotal +"</td><td class ='product-remove'><a href='#' class='pdelete' data-product='"+ index +"'>Remove</a></td></tr>";
@@ -51,27 +44,14 @@ export default function testModule () {
     document.addEventListener('click',function(e){
         if(e.target && e.target.classList == 'pdelete'){
             e.preventDefault();
-            console.log('you clicked remove');
+            console.log('you clicked');
         }
     });
 
     
 
     
-
     // these are dinamically inserted buttons so they need to have appropriate behaviour 
-
-    // const deleteButtons = document.querySelectorAll('.pdelete');
-    // deleteButtons.forEach(function(element) {
-    //     element.addEventListener('click', (e)=> {
-            
-    //         console.log('clicked delete');
-    //         e.preventDefault();
-    //     });
-    // });
-
-
-
         // deleteButtons.forEach(function(element) {
         //     element.addEventListener('click', function (e) {
                 
@@ -95,18 +75,6 @@ export default function testModule () {
                 
         //     });
         // });
-
-    
-
-    // for(var i=0; i<3; i++) {
-    //     var doc = document.querySelector(".wrapper");
-    //     var aTag = document.createElement('a');
-    //     aTag.setAttribute('href',"js://");
-    //     aTag.innerHTML = `link text - ${i}`;
-    //     aTag.addEventListener('click', clickHandler);
-    //     doc.appendChild(aTag);
-        
-    // }
 
 
     const deleteFromBasket = () => {
