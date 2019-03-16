@@ -1,8 +1,3 @@
-// https://www.w3resource.com/javascript-exercises/javascript-array-exercise-10.php
-// http://jsfiddle.net/greenrhino/rS3Qf/
-// https://www.telerik.com/blogs/functional-programming-with-javascript-object-arrays
-// https://stackoverflow.com/questions/28606841/session-storage-how-to-store-multiple-objects
-
 export default function testModule () {
     const CartIcon = document.querySelector('.header__minicart');
     const addToCart = document.querySelector('.button--add-to-cart');
@@ -12,16 +7,6 @@ export default function testModule () {
     const ConvertToString = (value) => {
         return Number(value.replace(/[^0-9.-]+/g,""));
     }
-
-    const clickHandler = () => {
-        console.log('you clicked button');
-    }
-
-    const mario = (value) => {
-        console.log('you clicked button');
-    }
-
-
 
     const createBasket = () => {
         const shoppingBasket = document.querySelector('.cartMessage');
@@ -50,79 +35,23 @@ export default function testModule () {
     document.addEventListener('click',function(e){
         if(e.target && e.target.classList == 'pdelete'){
             e.preventDefault();
-            console.log(e.target.dataset.product);
+            const arrayPosition = e.target.dataset.product;
+            const MyBasket = JSON.parse(sessionStorage.getItem('basket'));
+            let myTotal = JSON.parse(sessionStorage.getItem('CartTotal'));
+            const itemSubtotal = MyBasket[arrayPosition].subtotal; // subtotal of item to be removed.
+            
+            MyBasket.splice(arrayPosition,1);
+            myTotal = myTotal - itemSubtotal;
+
+            sessionStorage.setItem( "CartTotal", JSON.stringify(myTotal) );
+            sessionStorage.setItem('basket', JSON.stringify(MyBasket));
+
+            createBasket();   
         }
     });
 
-    
 
-    
-    // these are dinamically inserted buttons so they need to have appropriate behaviour 
-        // deleteButtons.forEach(function(element) {
-        //     element.addEventListener('click', function (e) {
-                
-        //         e.preventDefault();
-        //         // const arrayPosition = element.dataset.product;
-        //         // const MBasketData = JSON.parse(sessionStorage.getItem('basket'));
-
-        //         console.log('clicked delete button');
-                
-        //         //MBasketData.splice(arrayPosition,1);
-        //         //sessionStorage.setItem('basket', JSON.stringify(MBasketData));
-
-        //         // e.stopPropagation();
-
-        //         // const cartItems = document.querySelector('.shopping__cart-items');
-        //         // cartItems.innerHTML = "";
-
-        //         //createBasket();
-
-                
-                
-        //     });
-        // });
-
-
-    const deleteFromBasket = () => {
-        
-        // const deleteButtons = document.querySelectorAll('.pdelete');
-        
-        // deleteButtons.forEach(function(element) {
-        //     element.addEventListener('click', (e) => {
-        //         e.preventDefault();
-        //         console.log('clicked close');
-        //     });
-        // });
-
-        
-        // deleteButtons.forEach(function(element) {
-        //     element.addEventListener('click', function (e) {
-                
-        //         e.preventDefault();
-        //         const arrayPosition = element.dataset.product;
-        //         const MBasketData = JSON.parse(sessionStorage.getItem('basket'));
-
-        //         //console.log(MBasketData);
-                
-        //         MBasketData.splice(arrayPosition,1);
-        //         sessionStorage.setItem('basket', JSON.stringify(MBasketData));
-
-        //         // e.stopPropagation();
-
-        //         // const cartItems = document.querySelector('.shopping__cart-items');
-        //         // cartItems.innerHTML = "";
-
-        //         //createBasket();
-
-                
-                
-        //     });
-        // });
-    }
-
-    
     const addToBasket = () => {
-
         const myItem = {};
         myItem.name = document.querySelector('.product__title').innerHTML;
         myItem.price = ConvertToString(document.querySelector('.product__price--current').innerHTML);
@@ -159,5 +88,5 @@ export default function testModule () {
     });
 
     createBasket();
-    deleteFromBasket();
+    //deleteFromBasket();
 };
