@@ -1,15 +1,3 @@
-// class quantityCounter {
-//     constructor() {
-//         this.root = document.querySelectorAll('.qty-input i');
-
-//         if(this.root) {
-            
-//         }
-//     }
-// }
-
-// export default quantityCounter;
-
 export default function quantityCounter () {
     const qtyButton = document.querySelectorAll('.product__quantity-holder i');
 

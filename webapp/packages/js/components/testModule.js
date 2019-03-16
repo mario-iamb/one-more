@@ -8,28 +8,51 @@ export default function testModule () {
         return Number(value.replace(/[^0-9.-]+/g,""));
     }
 
+    const miniBasketCounter = (value) => {
+        let val = parseInt(document.querySelector('.header__minicart-counter').innerHTML);
+
+        if( value == 'add') {
+            val = val + 1;
+        }
+        else if (value == 'remove') {
+            val = val - 1;
+        }
+
+        document.querySelector('.header__minicart-counter').innerHTML = val;
+    }
+
     const createBasket = () => {
-        const shoppingBasket = document.querySelector('.cartMessage');
-        const cartItems = document.querySelector('.shopping__cart-items');
-        const cartSum = document.querySelector('.stotal');
+        const cartMessage = document.querySelector('.mini-cart__message');
+        const cartItems = document.querySelector('.mini-cart__items-holder');
+        const cartTotalBlock = document.querySelector('.mini-cart__total');
+        const cartSum = document.querySelector('.mini-cart__total-value');
 
         if (sessionStorage.basket) {
             const BasketData = JSON.parse( sessionStorage.getItem('basket'));
             const BasketTotal = JSON.parse( sessionStorage.getItem('CartTotal'));
             cartItems.innerHTML = "";
 
+            cartMessage.classList.remove('active');
+
             BasketData.forEach(function(element, index) {
-                const cartHtml = "<tr><td class ='product-name'>"+ element.name +"</td><td class ='product-price'>"+ element.price +"</td><td class ='product-quantity'>"+ element.quantity +"</td><td class ='product-subtotal'>"+ element.subtotal +"</td><td class ='product-remove'><a href='#' class='pdelete' data-product='"+ index +"'>Remove</a></td></tr>";
+                const cartHtml = "<tr class='prod__item'><td class='prod__name' width='50%'>"+ element.name +"</td><td width='50%'><table width='100%' border='0'><tbody><tr><td class='prod__price'><span>&#36;</span>"+ element.price +"</td></tr><tr><td class='prod__quantity'><span>Qty: </span>"+ element.quantity +"</td></tr><tr><td class='prod__subtotal'><span>Subtotal: &#36;</span>"+ element.subtotal +"</td></tr><tr><td class='prod__remove'><a href='#' class='pdelete' data-product='"+ index +"'>Remove</a></td></tr></tbody></table></td></tr>";
                 cartItems.insertAdjacentHTML('afterbegin',cartHtml);
             });
 
+            cartTotalBlock.classList.remove('inactive');
             cartSum.innerHTML = BasketTotal.toFixed(2);
 
-        }
+            if (Object.keys(BasketData).length == '0') {
+                cartMessage.classList.add('active');
+                cartTotalBlock.classList.add('inactive');
+            }
+            else {
+                cartMessage.classList.remove('active');
+            }
+        } 
         else {
-            shoppingBasket.innerHTML = "You have no items in your cart";
+            cartMessage.classList.add('active');
         }
-
     }
 
     const deleteFromBasket = () => {
@@ -42,11 +65,15 @@ export default function testModule () {
                 const itemSubtotal = MyBasket[arrayPosition].subtotal;
                 
                 MyBasket.splice(arrayPosition,1);
+
                 myTotal = myTotal - itemSubtotal;
+                //const PushTotal = MyNewTotal.toFixed(2);
+                //myTotal = myTotal - itemSubtotal;
     
                 sessionStorage.setItem( "CartTotal", JSON.stringify(myTotal) );
                 sessionStorage.setItem('basket', JSON.stringify(MyBasket));
-    
+                
+                // miniBasketCounter('remove');
                 createBasket();   
             }
         });
@@ -70,6 +97,8 @@ export default function testModule () {
 
         let totalPrice = basket.map(obj => obj.subtotal).reduce((acc, next) => acc + next);
         sessionStorage.setItem( "CartTotal", JSON.stringify(totalPrice) );
+
+        // miniBasketCounter('add');
     }
 
     addToCart.addEventListener('click', (e)=> {

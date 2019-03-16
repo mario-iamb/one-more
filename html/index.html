@@ -41,8 +41,6 @@
 
        
         <section class="product">
-
-            <!--
             <div class="product__images">
                 <ul class="images__list">
                     <li class="images__item">
@@ -50,8 +48,7 @@
                     </li>
                 </ul>
             </div>
-            -->
-
+            
             <div class="product__details">
                 <div class="breadcrumb">
                     <ul class="breadcrumb__list">
@@ -69,7 +66,7 @@
                 <div class="product__detail-wrapper">
                     <h1 class="product__title">Moonrock from Apollo Expedition</h1>
                     <div class="product__price">
-                        <span class="product__price--current">$59.99</span>
+                        <span class="product__price--current">$10.01</span>
                         <span class="product__price--sale">$69.99</span>
                     </div>
                     <div class="product__description">
@@ -102,7 +99,7 @@
         </section>
 
 
-        <section class="cart">
+        <!-- <section class="cart">
             <table class="shopping-cart">
                 <thead>
                     <tr>
@@ -123,7 +120,7 @@
             </p>
 
             <p class="cartMessage"></p>
-        </section>
+        </section> -->
         
     </div>
 
@@ -132,6 +129,18 @@
             <h2 class="mini-cart__title">Your Bag</h2>
             <a href="#" class="mini-cart__close"></a>
         </header>
+
+        <section class="mini-cart__items">
+            <p class="mini-cart__message">You have no products in your cart</p>
+
+            <table class="mini-cart__table">
+                <tbody class='mini-cart__items-holder'>
+                </tbody>
+            </table>
+
+            <p class="mini-cart__total inactive">Total: &#36;<span class="mini-cart__total-value"></span></p>
+
+        </section>
     </div>
 
     <script src="../js/script.js"></script>
