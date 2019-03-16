@@ -32,24 +32,25 @@ export default function testModule () {
 
     }
 
-    document.addEventListener('click',function(e){
-        if(e.target && e.target.classList == 'pdelete'){
-            e.preventDefault();
-            const arrayPosition = e.target.dataset.product;
-            const MyBasket = JSON.parse(sessionStorage.getItem('basket'));
-            let myTotal = JSON.parse(sessionStorage.getItem('CartTotal'));
-            const itemSubtotal = MyBasket[arrayPosition].subtotal; // subtotal of item to be removed.
-            
-            MyBasket.splice(arrayPosition,1);
-            myTotal = myTotal - itemSubtotal;
-
-            sessionStorage.setItem( "CartTotal", JSON.stringify(myTotal) );
-            sessionStorage.setItem('basket', JSON.stringify(MyBasket));
-
-            createBasket();   
-        }
-    });
-
+    const deleteFromBasket = () => {
+        document.addEventListener('click',function(e){
+            if(e.target && e.target.classList == 'pdelete'){
+                e.preventDefault();
+                const arrayPosition = e.target.dataset.product;
+                const MyBasket = JSON.parse(sessionStorage.getItem('basket'));
+                let myTotal = JSON.parse(sessionStorage.getItem('CartTotal'));
+                const itemSubtotal = MyBasket[arrayPosition].subtotal;
+                
+                MyBasket.splice(arrayPosition,1);
+                myTotal = myTotal - itemSubtotal;
+    
+                sessionStorage.setItem( "CartTotal", JSON.stringify(myTotal) );
+                sessionStorage.setItem('basket', JSON.stringify(MyBasket));
+    
+                createBasket();   
+            }
+        });
+    }
 
     const addToBasket = () => {
         const myItem = {};
@@ -88,5 +89,5 @@ export default function testModule () {
     });
 
     createBasket();
-    //deleteFromBasket();
+    deleteFromBasket();
 };
