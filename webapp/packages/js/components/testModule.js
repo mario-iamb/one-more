@@ -8,17 +8,27 @@ export default function testModule () {
         return Number(value.replace(/[^0-9.-]+/g,""));
     }
 
-    const miniBasketCounter = (value) => {
-        let val = parseInt(document.querySelector('.header__minicart-counter').innerHTML);
+    const minBasketCounter = (value) => {
 
-        if( value == 'add') {
-            val = val + 1;
-        }
-        else if (value == 'remove') {
-            val = val - 1;
-        }
+        if (sessionStorage.miniCartValue) {
+            let currentValue = JSON.parse(sessionStorage.getItem('miniCartValue'));
+            
+            if (value == 'add') {
+                currentValue = currentValue + 1;
+                sessionStorage.setItem( "miniCartValue", JSON.stringify(currentValue) );
 
-        document.querySelector('.header__minicart-counter').innerHTML = val;
+            } else if (value == 'remove') {
+                currentValue = currentValue - 1;
+                sessionStorage.setItem( "miniCartValue", JSON.stringify(currentValue) );
+            }
+
+            document.querySelector('.header__minicart-counter').innerHTML = currentValue;
+
+        }
+        else {
+            sessionStorage.setItem('miniCartValue', JSON.stringify(0));
+            document.querySelector('.header__minicart-counter').innerHTML = '0';
+        }
     }
 
     const createBasket = () => {
@@ -65,15 +75,12 @@ export default function testModule () {
                 const itemSubtotal = MyBasket[arrayPosition].subtotal;
                 
                 MyBasket.splice(arrayPosition,1);
-
                 myTotal = myTotal - itemSubtotal;
-                //const PushTotal = MyNewTotal.toFixed(2);
-                //myTotal = myTotal - itemSubtotal;
     
                 sessionStorage.setItem( "CartTotal", JSON.stringify(myTotal) );
                 sessionStorage.setItem('basket', JSON.stringify(MyBasket));
                 
-                // miniBasketCounter('remove');
+                minBasketCounter('remove');
                 createBasket();   
             }
         });
@@ -98,7 +105,7 @@ export default function testModule () {
         let totalPrice = basket.map(obj => obj.subtotal).reduce((acc, next) => acc + next);
         sessionStorage.setItem( "CartTotal", JSON.stringify(totalPrice) );
 
-        // miniBasketCounter('add');
+        minBasketCounter('add');
     }
 
     addToCart.addEventListener('click', (e)=> {
@@ -118,5 +125,6 @@ export default function testModule () {
     });
 
     createBasket();
+    minBasketCounter();
     deleteFromBasket();
 };
