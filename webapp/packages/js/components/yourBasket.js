@@ -1,4 +1,4 @@
-export default function testModule () {
+export default function yourBasket () {
     const CartIcon = document.querySelector('.header__minicart');
     const addToCart = document.querySelector('.button--add-to-cart');
     const closeMiniCart = document.querySelector('.mini-cart__close');

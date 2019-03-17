@@ -1,17 +1,14 @@
-import testModule from './components/testModule';
+import yourBasket from './components/yourBasket';
 import quantityCounter from './components/quantityCounter';
+import geolocation from './components/geolocation';
 
 
 class App {
-    // static breakpoints = {
-    //     lg: 'screen and (min-width: 992px)',
-    //     md: 'screen and (min-width: 768px) and (max-width: 991px)',
-    //     sm: 'screen and (max-width: 767px)',
-    // };
 
     constructor() {
-        this.testModule = new testModule();
+        this.yourBasket = new yourBasket();
         this.quantityCounter = new quantityCounter();
+        this.geolocation = new geolocation();
     }
 }
 

@@ -8,6 +8,16 @@
     <title>Puglife</title>
 </head>
 <body>
+    
+    <div class='geoloaction'>
+        <div class="geoloaction__wrapper">
+            <div class="geoloaction__msg"><p>Looks like you're based around: <span class="geoloaction__msg-city"></span> <span class="geoloaction__msg-postcode"></span>, <span class="geoloaction__msg-country"></span> <a href="#" class="geoloaction__msg-cta">View on the map</a></p></div>
+        </div>
+        <div class="geoloaction__map">
+            <div id="map"></div>
+        </div>
+    </div>
+
     <div class="wrapper">
         <header class="header">
             <div class="header__wrapper">
@@ -66,7 +76,7 @@
                 <div class="product__detail-wrapper">
                     <h1 class="product__title">Moonrock from Apollo Expedition</h1>
                     <div class="product__price">
-                        <span class="product__price--current">$10.01</span>
+                        <span class="product__price--current">$59.99</span>
                         <span class="product__price--sale">$69.99</span>
                     </div>
                     <div class="product__description">
@@ -118,6 +128,18 @@
         </section>
     </div>
 
+    <!-- <script>
+        var map;
+        function initMap() {
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: {lat: 51.4743, lng: -0.0928},
+                zoom: 15
+            });
+        }
+    </script> -->
+
     <script src="../js/script.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEQX4u0DDr1lXYi9RH00GLxC_YaOzbSTc&callback=initMap" async defer></script>
+    
 </body>
 </html>
