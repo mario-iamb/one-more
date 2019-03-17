@@ -28,6 +28,10 @@
             outline-width: 0;
             background-color: $c-light-blue;
         }
+
+        @include screen(0, $media-tablet) {
+            display: none;
+        }
     }
 
     &__button {
@@ -50,6 +54,15 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
+
+            @include screen(0, $media-tablet) {
+                background: url('images/search-icon-white.svg');
+            }
+        }
+
+        @include screen(0, $media-tablet) {
+            right: 0;
+            background-color: $c-aquamarine;
         }
     }
 }

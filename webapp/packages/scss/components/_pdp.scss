@@ -154,7 +154,7 @@
     }
 
     &__quantity {
-        @include min-screen($media-tablet) {
+        @include min-screen($media-tablet-xs) {
             margin-bottom: rem(50px);
         }
     }

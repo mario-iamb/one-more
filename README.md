@@ -13,7 +13,7 @@ HTML, CSS and JS folders in the main directory contain the assets compiled and r
 
 ## App development 
 
-Building the theme requires [node.js](http://nodejs.org/download/).
+Building the app requires [node.js](http://nodejs.org/download/).
 
 From the command line:
 
