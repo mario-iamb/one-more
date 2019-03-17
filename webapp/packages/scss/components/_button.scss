@@ -22,6 +22,12 @@
 
     &--wishlist {
         align-items: flex-end;
+
+        @include screen(0, $media-tablet-xs) {
+            align-self: flex-end;
+            margin-bottom: rem(50px);
+            margin-top: rem(-30px);
+        }
     }
 
     &__text {

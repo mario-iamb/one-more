@@ -2,7 +2,6 @@ export default function starRating () {
     const starContainer = document.getElementById('stars');
     const stars = Array.prototype.slice.call(starContainer.children);
     const totalStars = stars.length;
-    const rated = document.getElementById('rated');
 
     if (sessionStorage.RatingsCounter) {
         const currentTotal = JSON.parse(sessionStorage.getItem('RatingsCounter'));

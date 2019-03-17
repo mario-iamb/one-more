@@ -104,15 +104,6 @@
         .star:hover ~ .star svg {
             fill: $c-yellow;
         }
-          
-          
-        #rated {
-            margin-top: 1em;
-        }
-          
-        [dir="rtl"] {
-        direction: rtl
-        }
 
         &-stars {
             margin-right: rem(20px);
@@ -163,7 +154,9 @@
     }
 
     &__quantity {
-        margin-bottom: rem(50px);
+        @include min-screen($media-tablet) {
+            margin-bottom: rem(50px);
+        }
     }
 
     &__actions {

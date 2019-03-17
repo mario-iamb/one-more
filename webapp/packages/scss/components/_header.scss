@@ -35,7 +35,7 @@
         margin-right: rem(80px);
 
         @include screen(0, $media-tablet) {
-            display: none;
+            margin-right: rem(36px);
         }
     }
 
@@ -44,6 +44,17 @@
         align-items: center;
         margin-right: rem(30px);
         z-index: 1;
+
+        &-icon {
+            width: rem(24px);
+            height: rem(24px);
+
+            @include screen(0, $media-tablet) {
+                path {
+                    fill: $c-white;
+                }
+            }
+        }
 
         &-counter {
             @include t-regular;
